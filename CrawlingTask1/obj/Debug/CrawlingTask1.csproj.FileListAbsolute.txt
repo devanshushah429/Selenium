@@ -1,0 +1,15 @@
+D:\Devanshu\Selenium\CrawlingTask1\bin\Debug\selenium-manager\linux\selenium-manager
+D:\Devanshu\Selenium\CrawlingTask1\bin\Debug\selenium-manager\macos\selenium-manager
+D:\Devanshu\Selenium\CrawlingTask1\bin\Debug\selenium-manager\windows\selenium-manager.exe
+D:\Devanshu\Selenium\CrawlingTask1\bin\Debug\CrawlingTask1.exe.config
+D:\Devanshu\Selenium\CrawlingTask1\bin\Debug\CrawlingTask1.exe
+D:\Devanshu\Selenium\CrawlingTask1\bin\Debug\CrawlingTask1.pdb
+D:\Devanshu\Selenium\CrawlingTask1\bin\Debug\Newtonsoft.Json.dll
+D:\Devanshu\Selenium\CrawlingTask1\bin\Debug\WebDriver.dll
+D:\Devanshu\Selenium\CrawlingTask1\bin\Debug\Newtonsoft.Json.xml
+D:\Devanshu\Selenium\CrawlingTask1\bin\Debug\WebDriver.xml
+D:\Devanshu\Selenium\CrawlingTask1\obj\Debug\CrawlingTask1.csproj.AssemblyReference.cache
+D:\Devanshu\Selenium\CrawlingTask1\obj\Debug\CrawlingTask1.csproj.CoreCompileInputs.cache
+D:\Devanshu\Selenium\CrawlingTask1\obj\Debug\CrawlingTask1.csproj.CopyComplete
+D:\Devanshu\Selenium\CrawlingTask1\obj\Debug\CrawlingTask1.exe
+D:\Devanshu\Selenium\CrawlingTask1\obj\Debug\CrawlingTask1.pdb
