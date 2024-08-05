@@ -10,7 +10,7 @@ namespace SeleniumTest
     {
         static void Main(string[] args)
         {
-            Sample2 sample = new Sample2();
+            Sample1 sample = new Sample1();
             /*s2.Method1();*/
             /*BasicTutorial();*/
             /*Sample1 sample = new Sample1();
