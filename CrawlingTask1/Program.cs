@@ -26,7 +26,8 @@ namespace CrawlingTask1
                 i++;
                 Console.WriteLine(i + ") " + a);
             }
-            GetAllLocation();*/
+            GetAllLocation();
+            */
             List<string> titlesList = GetAllTitles();
             List<string> imageUrlList = GetAllImageUrl();
             List<string> linkList = getAllLinks();
@@ -43,7 +44,7 @@ namespace CrawlingTask1
             Console.Read();
         }
 
-        private static void InsertIntoDatabase()
+        private static void InsertIntoDatabase(AuctionModel model)
         {
             string connStr = "Server=DESKTOP-B32RQ3U;Database=Ineichen;Integrated Security=True;";
             try
@@ -54,8 +55,8 @@ namespace CrawlingTask1
                     using (SqlCommand cmd = new SqlCommand("InsertEmployee", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@", employeeID);
-                        cmd.Parameters.AddWithValue("@", employeeName);
+                        cmd.Parameters.AddWithValue("@", model.title);
+                        cmd.Parameters.AddWithValue("@", model.imageUrlList);
                         cmd.Parameters.AddWithValue("@", departmentID);
                         int rowsAffected = cmd.ExecuteNonQuery();
                         Console.WriteLine("Rows affected: " + rowsAffected);
