@@ -33,3 +33,8 @@ E:\Training_weybee\Selenium\CrawlingTask1\bin\Debug\WebDriver.Support.xml
 E:\Training_weybee\Selenium\CrawlingTask1\bin\Debug\HtmlAgilityPack.dll
 E:\Training_weybee\Selenium\CrawlingTask1\bin\Debug\HtmlAgilityPack.pdb
 E:\Training_weybee\Selenium\CrawlingTask1\bin\Debug\HtmlAgilityPack.xml
+D:\Devanshu\Selenium\CrawlingTask1\bin\Debug\HtmlAgilityPack.dll
+D:\Devanshu\Selenium\CrawlingTask1\bin\Debug\WebDriver.Support.dll
+D:\Devanshu\Selenium\CrawlingTask1\bin\Debug\HtmlAgilityPack.pdb
+D:\Devanshu\Selenium\CrawlingTask1\bin\Debug\HtmlAgilityPack.xml
+D:\Devanshu\Selenium\CrawlingTask1\bin\Debug\WebDriver.Support.xml
