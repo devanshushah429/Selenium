@@ -9,3 +9,14 @@ D:\Devanshu\Selenium\CrawlingTask\obj\Debug\CrawlingTask.csproj.CoreCompileInput
 D:\Devanshu\Selenium\CrawlingTask\obj\Debug\CrawlingTask.csproj.CopyComplete
 D:\Devanshu\Selenium\CrawlingTask\obj\Debug\CrawlingTask.exe
 D:\Devanshu\Selenium\CrawlingTask\obj\Debug\CrawlingTask.pdb
+E:\Training_weybee\Selenium\CrawlingTask\bin\Debug\CrawlingTask.exe.config
+E:\Training_weybee\Selenium\CrawlingTask\bin\Debug\CrawlingTask.exe
+E:\Training_weybee\Selenium\CrawlingTask\bin\Debug\CrawlingTask.pdb
+E:\Training_weybee\Selenium\CrawlingTask\bin\Debug\HtmlAgilityPack.dll
+E:\Training_weybee\Selenium\CrawlingTask\bin\Debug\HtmlAgilityPack.pdb
+E:\Training_weybee\Selenium\CrawlingTask\bin\Debug\HtmlAgilityPack.xml
+E:\Training_weybee\Selenium\CrawlingTask\obj\Debug\CrawlingTask.csproj.AssemblyReference.cache
+E:\Training_weybee\Selenium\CrawlingTask\obj\Debug\CrawlingTask.csproj.CoreCompileInputs.cache
+E:\Training_weybee\Selenium\CrawlingTask\obj\Debug\CrawlingTask.csproj.CopyComplete
+E:\Training_weybee\Selenium\CrawlingTask\obj\Debug\CrawlingTask.exe
+E:\Training_weybee\Selenium\CrawlingTask\obj\Debug\CrawlingTask.pdb

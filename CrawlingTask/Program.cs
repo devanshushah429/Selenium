@@ -15,10 +15,10 @@ namespace CrawlingTask
             String url = "https://ineichen.com/auctions/past/";
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc = web.Load(url);
-            List<string> datetimeRegexList = new List<string>() 
+            List<string> datetimeRegexList = new List<string>()
             {
-                @"^(\d+)\s-\s(\d+)\s(\w+)\s(\d{2}:\d{2}\sCET)$",
-                @"^(\d+)\s-\s(\d+)\s(\w+)\s(\d{4})$",
+                @"^(\d+)\s-\s(\d+)\s(\w+)\s+(\d{2}:\d{2}\sCET)$",
+                @"^(\d+)\s-\s(\d+)\s(\w+)\s+(\d{4})$",
                 @"^(\d+)\s-\s(\d+)\s(\w+)$",
                 @"^(\d)+\s(\w+)\s-\s(\d+)\s(\w+)$",
                 @"^(\d+)\s(\w+),\s(\d{2}:\d{2}\sCET)\s(\d+)\s(\w+),\s(\d{2}:\d{2}\sCET)$",
@@ -37,13 +37,6 @@ namespace CrawlingTask
             string linkXPath = ".//div[contains(@class,'auction-item__btns')]/a";
             string lotCountXPath = ".//div[contains(@class,'auction-item__btns')]/a";
             string startDateXPath = ".//div[@class='auction-date-location']//div[i[contains(@class,'mdi-clock-outline')]]";
-            string startMonthXPath = ".//div[@class='auction-date-location']//div[i[contains(@class,'mdi-clock-outline')]]";
-            string startYearXPath = ".//div[@class='auction-date-location']//div[i[contains(@class,'mdi-clock-outline')]]";
-            string startTimeXPath = ".//div[@class='auction-date-location']//div[i[contains(@class,'mdi-clock-outline')]]";
-            string endDateXPath = ".//div[@class='auction-date-location']//div[i[contains(@class,'mdi-clock-outline')]]";
-            string endMonthXPath = ".//div[@class='auction-date-location']//div[i[contains(@class,'mdi-clock-outline')]]";
-            string endYearXPath = ".//div[@class='auction-date-location']//div[i[contains(@class,'mdi-clock-outline')]]";
-            string endTimeXPath = ".//div[@class='auction-date-location']//div[i[contains(@class,'mdi-clock-outline')]]";
             string locationXPath = ".//div[@class='auction-date-location']//div[i[contains(@class,'mdi-map-marker-outline')]|i[contains(@class,'mdi-web')]]";
 
             string descriptionRegex = @"\s+";
@@ -62,26 +55,59 @@ namespace CrawlingTask
                     var dateTimeNode = card.SelectSingleNode(startDateXPath);
 
                     /*
-                    model.title = titleNode.InnerText.Trim();
-                    model.description = Regex.Replace(descriptionNode.InnerText.Trim(), descriptionRegex, " ");
-                    
-                    string imageUrlsrc = imageUrlNode.GetAttributeValue("src", string.Empty);
-                    Uri absoluteUrl = new Uri(new Uri(url), imageUrlsrc);
-                    model.imageUrl= absoluteUrl.ToString();
-                    string linkText = linkNode.GetAttributeValue("href", string.Empty);
-                    Uri absoluteUrl = new Uri(new Uri(url), linkText);
-                    model.link = absoluteUrl.ToString();
-                    string lotCountPattern = @"\d+";
-                    Regex lotCountRegex = new Regex(lotCountPattern);
-                    Match match = lotCountRegex.Match(lotCountNode.InnerText.Trim());
-                    if (match.Success)
-                    {
-                        model.lotCount = Convert.ToInt32(match.Value);
-                        Console.WriteLine(model.lotCount);
-                    }
+                                        model.title = titleNode.InnerText.Trim();
+                                        model.description = Regex.Replace(descriptionNode.InnerText.Trim(), descriptionRegex, " ");
+
+                                        string imageUrlsrc = imageUrlNode.GetAttributeValue("src", string.Empty);
+                                        Uri absoluteUrl = new Uri(new Uri(url), imageUrlsrc);
+                                        model.imageUrl = absoluteUrl.ToString();
+                                        string linkText = linkNode.GetAttributeValue("href", string.Empty);
+                                        Uri absoluteUrl = new Uri(new Uri(url), linkText);
+                                        model.link = absoluteUrl.ToString();
+                                        string lotCountPattern = @"\d+";
+                                        Regex lotCountRegex = new Regex(lotCountPattern);
+                                        Match match = lotCountRegex.Match(lotCountNode.InnerText.Trim());
+                                        if (match.Success)
+                                        {
+                                            model.lotCount = Convert.ToInt32(match.Value);
+                                        }
                     */
-                    Console.WriteLine(dateTimeNode.InnerText.Trim());
-                    Console.WriteLine("--------------------------------");
+                    int dateRegexListLength = datetimeRegexList.Count;
+                    for (int i = 0; i < dateRegexListLength; i++)
+                    {
+                        Regex dateRegex = new Regex(datetimeRegexList[i]);
+                        Match match = dateRegex.Match(dateTimeNode.InnerText.Trim());
+                        if (match.Success)
+                        {
+                            if (i == 0)
+                            {
+                                model.startingDate = Convert.ToInt32(match.Groups[1].Value);
+                                model.endingDate = Convert.ToInt32(match.Groups[2].Value);
+                                model.startingMonth = match.Groups[3].Value;
+                                model.endingMonth = match.Groups[3].Value;
+                                model.startingTime = match.Groups[4].Value;
+                            }
+                            else if(i == 2)
+                            {
+                                model.startingDate = Convert.ToInt32(match.Groups[1].Value);
+                                model.endingDate = Convert.ToInt32(match.Groups[2].Value);
+                                model.startingMonth = match.Groups[3].Value;
+                                model.endingMonth = match.Groups[3].Value;
+                                model.startingYear = Convert.ToInt32(match.Groups[4].Value);
+                                model.endingYear = Convert.ToInt32(match.Groups[4].Value);
+                            }
+                            else if(i==3)
+                            {
+
+                            }
+
+                        }
+
+
+                    }
+
+                    /*Console.WriteLine(dateTimeNode.InnerText.Trim());
+                    Console.WriteLine("--------------------------------");*/
 
                     n++;
                 }
