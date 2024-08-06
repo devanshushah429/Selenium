@@ -148,7 +148,7 @@ namespace CrawlingTask1
         {
             List<int> lotCountList = new List<int>();
             HtmlNodeCollection lotCountNodes = doc.DocumentNode.SelectNodes("//div[@class='auction-item__btns']/a");
-            string pattern = @"(?<=View\s+)\d+(?=\s+lots)";
+            string pattern = @"\d+";
             Regex regex = new Regex(pattern);
             if (lotCountNodes != null)
             {
