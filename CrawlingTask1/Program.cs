@@ -52,12 +52,18 @@ namespace CrawlingTask1
                 using (SqlConnection conn = new SqlConnection(connStr))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("InsertEmployee", conn))
+                    using (SqlCommand cmd = new SqlCommand("PR_AuctionsDemo_InsertData", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@", model.title);
-                        cmd.Parameters.AddWithValue("@", model.imageUrlList);
-                        cmd.Parameters.AddWithValue("@", departmentID);
+                        cmd.Parameters.AddWithValue("@Title", model.title);
+                        cmd.Parameters.AddWithValue("@Description", model.description);
+                        cmd.Parameters.AddWithValue("@ImageUrl", model.imageUrl);
+                        cmd.Parameters.AddWithValue("@Link", model.Link);
+                        cmd.Parameters.AddWithValue("@LotCount", model.lotCount);
+                        cmd.Parameters.AddWithValue("@StartDate", model.startingDate);
+                        cmd.Parameters.AddWithValue("@StartMonth", model.startingDate);
+                        cmd.Parameters.AddWithValue("@StartYear", model.startingDate);
+                        cmd.Parameters.AddWithValue("@StartTime", model.startingDate);
                         int rowsAffected = cmd.ExecuteNonQuery();
                         Console.WriteLine("Rows affected: " + rowsAffected);
                     }

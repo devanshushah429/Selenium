@@ -28,7 +28,7 @@ namespace SeleniumTest
             Thread.Sleep(2000);
             Console.WriteLine("username value is entered");
             IWebElement passwordElement = driver.FindElement(By.Id("txtPassword"));
-            passwordElement.SendKeys("DkShah@_294");
+            passwordElement.SendKeys("");
             Thread.Sleep(2000);
             Console.WriteLine("Password Entered");
             IWebElement loginButtonElement = driver.FindElement(By.Id("btnLogin"));

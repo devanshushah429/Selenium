@@ -17,7 +17,7 @@ namespace SeleniumTest
         [SetUp]
         public void Initialize()
         {
-            driver.Navigate().GoToUrl("            https://chatgpt.com/");
+            driver.Navigate().GoToUrl("https://chatgpt.com/");
             driver.Manage().Window.Maximize();
             Thread.Sleep(2000);
         }
