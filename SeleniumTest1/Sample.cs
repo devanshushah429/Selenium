@@ -2,10 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace SeleniumTest1
 {
@@ -24,7 +21,7 @@ namespace SeleniumTest1
             IEnumerable<IWebElement> elements = driver.FindElements(By.XPath("//div[contains(@class,'auctions-list')]//div[@id]"));
             foreach(IWebElement element in elements)
             {
-                element.FindElement
+                /*element.FindElement*/
             }
         }
     }

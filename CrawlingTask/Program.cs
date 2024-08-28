@@ -17,6 +17,11 @@ namespace CrawlingTask
         public static string multipleSpaceRegex = @"\s+";
         public static void Main(string[] args)
         {
+            Class1.Main1();
+        }
+        /*public static void Main(string[] args)
+        {
+            
             String url = "https://ineichen.com/auctions/past/";
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc = web.Load(url);
@@ -73,7 +78,7 @@ namespace CrawlingTask
                 }
             }
             Console.ReadKey();
-        }
+        }*/
         private static bool UpdateInDatabaseUsingLink(AuctionModel model)
         {
 
@@ -90,14 +95,14 @@ namespace CrawlingTask
                         cmd.Parameters.AddWithValue("@ImageUrl", model.imageUrl);
                         cmd.Parameters.AddWithValue("@Link", model.link);
                         cmd.Parameters.AddWithValue("@LotCount", model.lotCount);
-                        cmd.Parameters.AddWithValue("@StartDate", model.startingDate);
-                        cmd.Parameters.AddWithValue("@StartMonth", model.startingMonth);
-                        cmd.Parameters.AddWithValue("@StartYear", model.startingYear);
-                        cmd.Parameters.AddWithValue("@StartTime", model.startingTime);
-                        cmd.Parameters.AddWithValue("@EndDate", model.endingDate);
-                        cmd.Parameters.AddWithValue("@EndMonth", model.endingMonth);
-                        cmd.Parameters.AddWithValue("@EndYear", model.endingYear);
-                        cmd.Parameters.AddWithValue("@EndTime", model.endingTime);
+                        cmd.Parameters.AddWithValue("@StartDate", model.startDate);
+                        cmd.Parameters.AddWithValue("@StartMonth", model.startMonth);
+                        cmd.Parameters.AddWithValue("@StartYear", model.startYear);
+                        cmd.Parameters.AddWithValue("@StartTime", model.startTime);
+                        cmd.Parameters.AddWithValue("@EndDate", model.endDate);
+                        cmd.Parameters.AddWithValue("@EndMonth", model.endMonth);
+                        cmd.Parameters.AddWithValue("@EndYear", model.endYear);
+                        cmd.Parameters.AddWithValue("@EndTime", model.endTime);
                         cmd.Parameters.AddWithValue("@Location", model.location);
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected == 1)
@@ -140,14 +145,14 @@ namespace CrawlingTask
                                 model.imageUrl = reader["ImageUrl"].ToString();
                                 model.link = reader["Link"].ToString();
                                 model.lotCount = Convert.ToInt32(reader["LotCount"]);
-                                model.startingDate = Convert.ToInt32(reader["StartDate"]);
-                                model.startingMonth = reader["StartMonth"].ToString();
-                                model.startingYear = Convert.ToInt32(reader["StartYear"]);
-                                model.startingTime = reader["StartTime"].ToString();
-                                model.endingDate = Convert.ToInt32(reader["EndDate"]);
-                                model.endingMonth = reader["EndMonth"].ToString();
-                                model.endingYear = Convert.ToInt32(reader["EndYear"]);
-                                model.endingTime = reader["EndTime"].ToString();
+                                model.startDate = Convert.ToInt32(reader["StartDate"]);
+                                model.startMonth = reader["StartMonth"].ToString();
+                                model.startYear = Convert.ToInt32(reader["StartYear"]);
+                                model.startTime = reader["StartTime"].ToString();
+                                model.endDate = Convert.ToInt32(reader["EndDate"]);
+                                model.endMonth = reader["EndMonth"].ToString();
+                                model.endYear = Convert.ToInt32(reader["EndYear"]);
+                                model.endTime = reader["EndTime"].ToString();
                                 model.location = reader["Location"].ToString();
                             }
                         }
@@ -176,14 +181,14 @@ namespace CrawlingTask
                         cmd.Parameters.AddWithValue("@ImageUrl", model.imageUrl);
                         cmd.Parameters.AddWithValue("@Link", model.link);
                         cmd.Parameters.AddWithValue("@LotCount", model.lotCount);
-                        cmd.Parameters.AddWithValue("@StartDate", model.startingDate);
-                        cmd.Parameters.AddWithValue("@StartMonth", model.startingMonth);
-                        cmd.Parameters.AddWithValue("@StartYear", model.startingYear);
-                        cmd.Parameters.AddWithValue("@StartTime", model.startingTime);
-                        cmd.Parameters.AddWithValue("@EndDate", model.endingDate);
-                        cmd.Parameters.AddWithValue("@EndMonth", model.endingMonth);
-                        cmd.Parameters.AddWithValue("@EndYear", model.endingYear);
-                        cmd.Parameters.AddWithValue("@EndTime", model.endingTime);
+                        cmd.Parameters.AddWithValue("@StartDate", model.startDate);
+                        cmd.Parameters.AddWithValue("@StartMonth", model.startMonth);
+                        cmd.Parameters.AddWithValue("@StartYear", model.startYear);
+                        cmd.Parameters.AddWithValue("@StartTime", model.startTime);
+                        cmd.Parameters.AddWithValue("@EndDate", model.endDate);
+                        cmd.Parameters.AddWithValue("@EndMonth", model.endMonth);
+                        cmd.Parameters.AddWithValue("@EndYear", model.endYear);
+                        cmd.Parameters.AddWithValue("@EndTime", model.endTime);
                         cmd.Parameters.AddWithValue("@Location", model.location);
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected == 1)
@@ -248,7 +253,7 @@ namespace CrawlingTask
         {
             List<string> datetimeRegexList = new List<string>()
             {
-                @"^(\d+)\s?-\s?(\d+)\s(\w+)\s(\d{2}:\d{2}\sCET)$",
+                @"^(<\d+)\s?-\s?(\d+)\s(\w+)\s(\d{2}:\d{2}\sCET)$",
                 @"^(\d+)\s-\s(\d+)\s(\w+)\s(\d{4})$",
                 @"^(\d+)\s-\s(\d+)\s(\w+)$",
                 @"^(\d)+\s(\w+)\s-\s(\d+)\s(\w+)$",
@@ -270,83 +275,83 @@ namespace CrawlingTask
                 {
                     if (i == 0)
                     {
-                        model.startingDate = Convert.ToInt32(match.Groups[1].Value);
-                        model.endingDate = Convert.ToInt32(match.Groups[2].Value);
-                        model.startingMonth = match.Groups[3].Value;
-                        model.endingMonth = match.Groups[3].Value;
-                        model.endingTime = match.Groups[4].Value;
+                        model.startDate = Convert.ToInt32(match.Groups[1].Value);
+                        model.endDate = Convert.ToInt32(match.Groups[2].Value);
+                        model.startMonth = match.Groups[3].Value;
+                        model.endMonth = match.Groups[3].Value;
+                        model.endTime = match.Groups[4].Value;
 
                     }
                     else if (i == 1)
                     {
-                        model.startingDate = Convert.ToInt32(match.Groups[1].Value);
-                        model.endingDate = Convert.ToInt32(match.Groups[2].Value);
-                        model.startingMonth = match.Groups[3].Value;
-                        model.endingMonth = match.Groups[3].Value;
-                        model.startingYear = Convert.ToInt32(match.Groups[4].Value);
-                        model.endingYear = Convert.ToInt32(match.Groups[4].Value);
+                        model.startDate = Convert.ToInt32(match.Groups[1].Value);
+                        model.endDate = Convert.ToInt32(match.Groups[2].Value);
+                        model.startMonth = match.Groups[3].Value;
+                        model.endMonth = match.Groups[3].Value;
+                        model.startYear = Convert.ToInt32(match.Groups[4].Value);
+                        model.endYear = Convert.ToInt32(match.Groups[4].Value);
                     }
                     else if (i == 2)
                     {
-                        model.startingDate = Convert.ToInt32(match.Groups[1].Value);
-                        model.endingDate = Convert.ToInt32(match.Groups[2].Value);
-                        model.startingMonth = match.Groups[3].Value;
-                        model.endingMonth = match.Groups[3].Value;
+                        model.startDate = Convert.ToInt32(match.Groups[1].Value);
+                        model.endDate = Convert.ToInt32(match.Groups[2].Value);
+                        model.startMonth = match.Groups[3].Value;
+                        model.endMonth = match.Groups[3].Value;
                     }
                     else if (i == 3)
                     {
-                        model.startingDate = Convert.ToInt32(match.Groups[1].Value);
-                        model.startingMonth = match.Groups[2].Value;
-                        model.endingDate = Convert.ToInt32(match.Groups[3].Value);
-                        model.endingMonth = match.Groups[4].Value;
+                        model.startDate = Convert.ToInt32(match.Groups[1].Value);
+                        model.startMonth = match.Groups[2].Value;
+                        model.endDate = Convert.ToInt32(match.Groups[3].Value);
+                        model.endMonth = match.Groups[4].Value;
                     }
                     else if (i == 4)
                     {
-                        model.startingDate = Convert.ToInt32(match.Groups[1].Value);
-                        model.startingMonth = match.Groups[2].Value;
-                        model.startingTime = match.Groups[3].Value;
-                        model.endingDate = Convert.ToInt32(match.Groups[4].Value);
-                        model.endingMonth = match.Groups[5].Value;
-                        model.endingTime = match.Groups[6].Value;
+                        model.startDate = Convert.ToInt32(match.Groups[1].Value);
+                        model.startMonth = match.Groups[2].Value;
+                        model.startTime = match.Groups[3].Value;
+                        model.endDate = Convert.ToInt32(match.Groups[4].Value);
+                        model.endMonth = match.Groups[5].Value;
+                        model.endTime = match.Groups[6].Value;
                     }
                     else if (i == 5)
                     {
-                        model.startingDate = Convert.ToInt32(match.Groups[1].Value);
-                        model.startingMonth = match.Groups[2].Value;
-                        model.startingTime = match.Groups[3].Value;
+                        model.startDate = Convert.ToInt32(match.Groups[1].Value);
+                        model.startMonth = match.Groups[2].Value;
+                        model.startTime = match.Groups[3].Value;
                     }
                     else if (i == 6)
                     {
-                        model.startingDate = Convert.ToInt32(match.Groups[1].Value);
-                        model.startingMonth = match.Groups[2].Value;
-                        model.endingDate = Convert.ToInt32(match.Groups[3].Value);
-                        model.endingMonth = match.Groups[4].Value;
-                        model.endingTime = match.Groups[5].Value;
+                        model.startDate = Convert.ToInt32(match.Groups[1].Value);
+                        model.startMonth = match.Groups[2].Value;
+                        model.endDate = Convert.ToInt32(match.Groups[3].Value);
+                        model.endMonth = match.Groups[4].Value;
+                        model.endTime = match.Groups[5].Value;
                     }
                     else if (i == 7)
                     {
-                        model.startingDate = Convert.ToInt32(match.Groups[1].Value);
-                        model.startingMonth = match.Groups[2].Value;
-                        model.endingDate = Convert.ToInt32(match.Groups[3].Value);
-                        model.endingMonth = match.Groups[4].Value;
-                        model.startingYear = Convert.ToInt32(match.Groups[5].Value);
-                        model.endingYear = Convert.ToInt32(match.Groups[5].Value);
+                        model.startDate = Convert.ToInt32(match.Groups[1].Value);
+                        model.startMonth = match.Groups[2].Value;
+                        model.endDate = Convert.ToInt32(match.Groups[3].Value);
+                        model.endMonth = match.Groups[4].Value;
+                        model.startYear = Convert.ToInt32(match.Groups[5].Value);
+                        model.endYear = Convert.ToInt32(match.Groups[5].Value);
                     }
                     else if (i == 8)
                     {
-                        model.startingDate = Convert.ToInt32(match.Groups[1].Value);
-                        model.startingMonth = match.Groups[2].Value;
-                        model.startingYear = Convert.ToInt32(match.Groups[3].Value);
-                        model.startingTime = match.Groups[4].Value;
+                        model.startDate = Convert.ToInt32(match.Groups[1].Value);
+                        model.startMonth = match.Groups[2].Value;
+                        model.startYear = Convert.ToInt32(match.Groups[3].Value);
+                        model.startTime = match.Groups[4].Value;
                     }
                     else if (i == 9)
                     {
-                        model.startingDate = Convert.ToInt32(match.Groups[1].Value);
-                        model.startingMonth = match.Groups[2].Value;
-                        model.startingYear = Convert.ToInt32(match.Groups[3].Value);
-                        model.endingDate = Convert.ToInt32(match.Groups[4].Value);
-                        model.endingMonth = match.Groups[5].Value;
-                        model.endingYear = Convert.ToInt32(match.Groups[6].Value);
+                        model.startDate = Convert.ToInt32(match.Groups[1].Value);
+                        model.startMonth = match.Groups[2].Value;
+                        model.startYear = Convert.ToInt32(match.Groups[3].Value);
+                        model.endDate = Convert.ToInt32(match.Groups[4].Value);
+                        model.endMonth = match.Groups[5].Value;
+                        model.endYear = Convert.ToInt32(match.Groups[6].Value);
                     }
                 }
             }

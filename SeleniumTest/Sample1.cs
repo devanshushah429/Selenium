@@ -1,8 +1,8 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using NUnit.Framework;
-using System.Threading;
 using System;
+using System.Threading;
 
 namespace SeleniumTest
 {

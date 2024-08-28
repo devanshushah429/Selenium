@@ -5,3 +5,11 @@ D:\Devanshu\Selenium\SeleniumTest1\obj\Debug\SeleniumTest1.csproj.AssemblyRefere
 D:\Devanshu\Selenium\SeleniumTest1\obj\Debug\SeleniumTest1.csproj.CoreCompileInputs.cache
 D:\Devanshu\Selenium\SeleniumTest1\obj\Debug\SeleniumTest1.exe
 D:\Devanshu\Selenium\SeleniumTest1\obj\Debug\SeleniumTest1.pdb
+D:\Devanshu\Selenium\SeleniumTest1\bin\Debug\selenium-manager\linux\selenium-manager
+D:\Devanshu\Selenium\SeleniumTest1\bin\Debug\selenium-manager\macos\selenium-manager
+D:\Devanshu\Selenium\SeleniumTest1\bin\Debug\selenium-manager\windows\selenium-manager.exe
+D:\Devanshu\Selenium\SeleniumTest1\bin\Debug\Newtonsoft.Json.dll
+D:\Devanshu\Selenium\SeleniumTest1\bin\Debug\WebDriver.dll
+D:\Devanshu\Selenium\SeleniumTest1\bin\Debug\Newtonsoft.Json.xml
+D:\Devanshu\Selenium\SeleniumTest1\bin\Debug\WebDriver.xml
+D:\Devanshu\Selenium\SeleniumTest1\obj\Debug\SeleniumTest1.csproj.CopyComplete

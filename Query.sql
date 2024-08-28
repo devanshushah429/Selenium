@@ -1,18 +1,18 @@
-CREATE Procedure PR_AuctionsDemo_InsertData
-@Title nvarchar(50),
-@Description nvarchar(max),
-@ImageUrl nvarchar(max),
-@Link nvarchar(max),
-@LotCount int,
-@StartDate int,
-@StartMonth nvarchar(50),
-@StartYear int,
-@StartTime nvarchar(50),
-@EndDate int,
-@EndMonth nvarchar(50),
-@EndYear int,
-@EndTime nvarchar(50),
-@Location nvarchar(100)
+CREATE OR ALTER PROCEDURE PR_AuctionsDemo_InsertData
+@Title NVARCHAR(50),
+@Description NVARCHAR(MAX),
+@ImageUrl NVARCHAR(MAX),
+@Link NVARCHAR(MAX),
+@LotCount INT,
+@StartDate INT,
+@StartMonth NVARCHAR(50),
+@StartYear INT,
+@StartTime NVARCHAR(50),
+@EndDate INT,
+@EndMonth NVARCHAR(50),
+@EndYear INT,
+@EndTime NVARCHAR(50),
+@Location NVARCHAR(100)
 AS
 BEGIN
 	INSERT INTO AuctionsDemo
@@ -32,7 +32,7 @@ BEGIN
 		,EndTime
 		,Location
 		)
-	Values
+	VALUES
 	(
 		@Title
 		,@Description
@@ -51,10 +51,10 @@ BEGIN
 	)
 END
 Truncate table AuctionsDemo
-SELECT * FROM AuctionsDemo
+Select * FROM AuctionsDemo
 
-CREATE OR ALTER Procedure PR_GetDataByLink
-@Link nvarchar(max)
+CREATE OR ALTER PROCEDURE PR_GetDataByLink
+@Link NVARCHAR(MAX)
 AS
 Begin
 	SELECT
@@ -79,16 +79,16 @@ END
 CREATE OR ALTER PROCEDURE PR_UpdateDataByLink
 @Title NVARCHAR(50),
 @Description NVARCHAR(MAX),
-@ImageUrl NVARCHAR(max),
-@Link NVARCHAR(max),
-@LotCount int,
-@StartDate int,
+@ImageUrl NVARCHAR(MAX),
+@Link NVARCHAR(MAX),
+@LotCount INT,
+@StartDate INT,
 @StartMonth NVARCHAR(50),
 @StartYear INT,
 @StartTime NVARCHAR(50),
 @EndDate INT,
 @EndMonth NVARCHAR(50),
-@EndYear int,
+@EndYear INT,
 @EndTime NVARCHAR(50),
 @Location NVARCHAR(100)
 AS

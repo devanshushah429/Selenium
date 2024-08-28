@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Data.SqlClient;
 using System.Data;
+using System.Web;
 
 namespace CrawlingTask1
 {
@@ -15,34 +16,58 @@ namespace CrawlingTask1
         public static HtmlDocument doc = web.Load(url);
         public static void Main(string[] args)
         {
+            HtmlWeb web1 = new HtmlWeb();
+            HtmlDocument doc1 = web.Load("https://www.sothebys.com/en/buy/pdp/luxury/watches/watch/_piaget-protocole-exceptional-reference-83541-a-white-gold-diamond-and-sapphire-set-quartz-wristwatch-0707?locale=en");
+            HtmlNodeCollection nodes1 = doc1.DocumentNode.SelectNodes("//img[contains(@class,'carousel_mainImage__KNh2W')]");
+            string regexString = @"(https:\/\/[^\/]+com)(.*media-desk)(.*)";
+            Regex regex = new Regex(regexString);
+            foreach (HtmlNode node in nodes1)
+            {
+                string originalUrl = node.GetAttributeValue("src", "");
+                Match match = regex.Match(originalUrl);
+                string finalUrl = originalUrl;
+                if (match.Success)
+                {
+                    finalUrl = HttpUtility.UrlDecode(match.Groups[1].ToString() + match.Groups[3].ToString());
+                }
 
-            /*
+                Console.WriteLine(finalUrl);
+            }
+
+
+
+            Console.Read();
+        }
+        /*public static void Main(string[] args)
+        {
+
+            *//*
             GetAllDates();
             List<string> discriptionList = GetAllDiscription();
             */
-            /*int i = 0;
-            foreach(int a in endingList)
-            {
-                i++;
-                Console.WriteLine(i + ") " + a);
-            }
-            GetAllLocation();
-            */
-            List<string> titlesList = GetAllTitles();
-            List<string> imageUrlList = GetAllImageUrl();
-            List<string> linkList = getAllLinks();
-            List<int> lotCountList = GetAllLotCounts();
-            List<int> startingDatesList = GetAllStartingDates();
-            List<int> endingDatesList = GetAllEndingDates();
-            List<string> startingMonthList = GetAllStartMonth();
-            List<string> endingMonthList = GetAllEndingMonth();
-            List<int> startingYearList = GetAllStartingYear();
-            List<int> endingYearList = GetAllEndingYear();
-            List<string> startingTimeList = GetAllStartingTime();
-            List<string> locationList = GetAllLocation();
-            InsertIntoDatabase();
-            Console.Read();
+        /*int i = 0;
+        foreach(int a in endingList)
+        {
+            i++;
+            Console.WriteLine(i + ") " + a);
         }
+        GetAllLocation();
+        *//*
+        List<string> titlesList = GetAllTitles();
+        List<string> imageUrlList = GetAllImageUrl();
+        List<string> linkList = getAllLinks();
+        List<int> lotCountList = GetAllLotCounts();
+        List<int> startingDatesList = GetAllStartingDates();
+        List<int> endingDatesList = GetAllEndingDates();
+        List<string> startingMonthList = GetAllStartMonth();
+        List<string> endingMonthList = GetAllEndingMonth();
+        List<int> startingYearList = GetAllStartingYear();
+        List<int> endingYearList = GetAllEndingYear();
+        List<string> startingTimeList = GetAllStartingTime();
+        List<string> locationList = GetAllLocation();
+        InsertIntoDatabase();
+        Console.Read();
+    }*/
 
         private static void InsertIntoDatabase(AuctionModel model)
         {
@@ -56,9 +81,9 @@ namespace CrawlingTask1
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@Title", model.title);
-                        cmd.Parameters.AddWithValue("@Description", model.description);
+                        /*cmd.Parameters.AddWithValue("@Description", model.description);*/
                         cmd.Parameters.AddWithValue("@ImageUrl", model.imageUrl);
-                        cmd.Parameters.AddWithValue("@Link", model.Link);
+                        /*cmd.Parameters.AddWithValue("@Link", model.Link);*/
                         cmd.Parameters.AddWithValue("@LotCount", model.lotCount);
                         cmd.Parameters.AddWithValue("@StartDate", model.startingDate);
                         cmd.Parameters.AddWithValue("@StartMonth", model.startingDate);

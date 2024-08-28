@@ -13,14 +13,14 @@ namespace CrawlingTask
         public string imageUrl { get; set; } = "N/A";
         public string link { get; set; } = "N/A";
         public int lotCount { get; set; } = -1;
-        public int startingDate { get; set; } = -1;
-        public int endingDate { get; set; } = -1;
-        public string startingMonth { get; set; } = "N/A";
-        public string endingMonth { get; set; } = "N/A";
-        public int startingYear { get; set; } = -1;
-        public int endingYear { get; set; } = -1;
-        public string startingTime { get; set; } = "N/A";
-        public string endingTime { get; set; } = "N/A";
+        public int startDate { get; set; } = -1;
+        public int endDate { get; set; } = -1;
+        public string startMonth { get; set; } = "N/A";
+        public string endMonth { get; set; } = "N/A";
+        public int startYear { get; set; } = -1;
+        public int endYear { get; set; } = -1;
+        public string startTime { get; set; } = "N/A";
+        public string endTime { get; set; } = "N/A";
         public string location { get; set; } = "N/A";
         public void PrintData()
         {
@@ -28,14 +28,14 @@ namespace CrawlingTask
             Console.WriteLine("ImageUrl : " + this.imageUrl);
             Console.WriteLine("link : " + this.link);
             Console.WriteLine("lotCount : " + this.lotCount);
-            Console.WriteLine("Starting date : " + this.startingDate);
-            Console.WriteLine("startingMonth : " + this.startingMonth);
-            Console.WriteLine("startingYear : " + this.startingYear);
-            Console.WriteLine("startingTime : " + this.startingTime);
-            Console.WriteLine("Ending date : " + this.endingDate);
-            Console.WriteLine("Ending Month : " + this.endingMonth);
-            Console.WriteLine("Ending Year : " + this.endingYear);
-            Console.WriteLine("Ending Time : " + this.endingTime);
+            Console.WriteLine("start date : " + this.startDate);
+            Console.WriteLine("startMonth : " + this.startMonth);
+            Console.WriteLine("startYear : " + this.startYear);
+            Console.WriteLine("startTime : " + this.startTime);
+            Console.WriteLine("end date : " + this.endDate);
+            Console.WriteLine("end Month : " + this.endMonth);
+            Console.WriteLine("end Year : " + this.endYear);
+            Console.WriteLine("end Time : " + this.endTime);
             Console.WriteLine("Location : " + this.location);
         }
         public bool Equals(AuctionModel model)
@@ -43,14 +43,14 @@ namespace CrawlingTask
             return (this.title.Equals(model.title) &&
                 this.imageUrl.Equals(model.imageUrl) &&
                 this.lotCount.Equals(model.lotCount) &&
-                this.startingDate.Equals(model.startingDate) &&
-                this.startingMonth.Equals(model.startingMonth) &&
-                this.startingYear.Equals(model.startingYear) &&
-                this.startingTime.Equals(model.startingTime) &&
-                this.endingDate.Equals(model.endingDate) &&
-                this.endingMonth.Equals(model.endingMonth) &&
-                this.endingYear.Equals(model.endingYear) &&
-                this.endingTime.Equals(model.endingTime) &&
+                this.startDate.Equals(model.startDate) &&
+                this.startMonth.Equals(model.startMonth) &&
+                this.startYear.Equals(model.startYear) &&
+                this.startTime.Equals(model.startTime) &&
+                this.endDate.Equals(model.endDate) &&
+                this.endMonth.Equals(model.endMonth) &&
+                this.endYear.Equals(model.endYear) &&
+                this.endTime.Equals(model.endTime) &&
                 this.location.Equals(model.location)
                 ) ;
         }
